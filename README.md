@@ -4,9 +4,7 @@ A real-time audio visualizer for [Hyprland](https://hyprland.org/), using [cava]
 
 This is an **extended version** of [Chiyo-no-sake's original hypr-cava-visualizer](https://github.com/Chiyo-no-sake/hypr-cava-visualizer). The original project provided the GTK4/Cava visualizer, smooth Bézier waveform, animated colors, mirroring, fade, and power-aware operation. This version adds JSON configuration, compact layer placement, rectangular bars, location-dependent reactivity, independent theme colors, and an optional wave-edge glow. **Full credit for the original project and foundation goes to [Chiyo-no-sake](https://github.com/Chiyo-no-sake).** See [Credits and license](#credits-and-license).
 
-<!-- Optional: add a screenshot to your repository and uncomment:
-![Visualizer behind a desktop bar](screenshot.png)
--->
+![Visualizer behind a desktop bar](examples/assets/2026-11-23.png)
 
 ## Features
 
@@ -26,7 +24,7 @@ This is an **extended version** of [Chiyo-no-sake's original hypr-cava-visualize
 ## Dependencies
 
 | Dependency | Purpose |
-|---|---|
+| --- | --- |
 | Python 3.10+ | Runtime |
 | GTK4 | Toolkit and drawing surface |
 | [gtk4-layer-shell](https://github.com/wmww/gtk4-layer-shell) | Wayland layer surface |
@@ -144,7 +142,7 @@ For direct execution, add the `LD_PRELOAD` and `GDK_BACKEND` environment variabl
 `quiet_zone` shapes amplitude and temporal smoothing in a horizontal region (`0.0` is the left edge; `1.0` is the right edge). It affects **both wave and bars**:
 
 | Key | Meaning |
-|---|---|
+| --- | --- |
 | `start`, `end` | Fractional horizontal limits of the zone |
 | `reactivity` | Amplitude multiplier in the quietest part; `0` suppresses activity there |
 | `smoothing` | Temporal smoothing amount from `0` (responsive) toward `1` (slower) |
@@ -156,7 +154,7 @@ The **`valley` profile** makes a smooth reduction toward the center and avoids s
 `edge_fade` is independent of the center quiet zone:
 
 | Key | Meaning |
-|---|---|
+| --- | --- |
 | `width` | Fraction of the visualization width used for tapering at **each** edge (`0`–`0.5`) |
 | `reactivity` | Amplitude multiplier at the very edge; `0` makes the waveform meet the baseline |
 | `smoothing` | Extra temporal smoothing applied near the edges |
@@ -208,7 +206,7 @@ If no colors file is provided, the visualizer uses `--color-primary`, `--color-s
 The main new options are:
 
 | Flag | Default | Meaning |
-|---|---|---|
+| --- | --- | --- |
 | `--config PATH` | none | Main JSON configuration |
 | `--style wave\|bars` | `wave` | Waveform or columns |
 | `--anchor top\|bottom\|center` | `center` | Vertical placement of a bounded layer |
@@ -226,7 +224,7 @@ The main new options are:
 Original controls are also available:
 
 | Flag | Default | Meaning |
-|---|---|---|
+| --- | --- | --- |
 | `--bars N` | `50` | Number of Cava frequency bands |
 | `--framerate N` | `0` | Target FPS, `0` for automatic selection |
 | `--height-pct N` | `20` | Amplitude height as a percentage of the drawing area |
